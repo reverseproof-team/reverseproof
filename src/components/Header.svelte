@@ -12,17 +12,21 @@
 
 <header>
     <div class="logo-container">
-        <img src={reverseproofLogo} alt="" class="logo-image" />
-        <span class="logo-text">ReverseProof</span>
+        <a href="/">
+            <img src={reverseproofLogo} alt="" class="logo-image" />
+        </a>
+        <a href="/">
+            <span class="logo-text">ReverseProof</span>
+        </a>
     </div>
     <div class="nav-container">
         <nav>
             {#each navs as nav}
-            <a class={"before-nav" + ($page.route.id === nav.path ? " primary" : "")} href={nav.path}>
-                <div class={"nav-button" + ($page.route.id === nav.path ? " primary" : "")}>
+            <!-- <div class={"before-nav" + ($page.route.id === nav.path ? " primary" : "")}> -->
+                <a href={nav.path} class={"nav-button" + ($page.route.id === nav.path ? " primary" : "")}>
                     <img src={nav.icon} alt="" />
-                </div>
-            </a>
+                </a>
+            <!-- </div> -->
             {/each}
         </nav>
     </div>
@@ -54,6 +58,11 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        & a {
+            @include flex-center;
+            color: white;
+            text-decoration: none;
+        }
     }
     .logo-image {
         width: clamp(32.5px, 7vh, 42.5px);
@@ -90,17 +99,29 @@
         }
     }
     .nav-button {
-        @include box(100%);
+        @include box(clamp(30px, 6.5vh, 40px));
         @include flex-center;
+        border-radius: min(10px, 25%);
         background-color: rgb(10, 10, 10);
-        border-radius: inherit;
+        margin: 10px;
         &.primary {
-            background-image: linear-gradient(90deg, rgb(225, 215, 0), rgb(126, 81, 35));
+            background-image: linear-gradient(90deg, rgb(255, 213, 0), rgb(126, 81, 35));
         }
         & img {
             width: clamp(20px, 4vh, 25px);
             height: clamp(20px, 4vh, 25px);
         }
+    }
+    .nav-button:not(.primary)::before {
+        content: "";
+        @include box(clamp(30px, 6.5vh, 40px));
+        position: absolute;
+        border-radius: min(10px, 25%);
+        margin: 6px;
+        padding: 1px;
+        background-image: linear-gradient(rgba(225, 190, 0, 1), rgba(225, 112, 0, .15));
+        filter: drop-shadow(0px 4px 4px #000000);
+        z-index: -1;
     }
 
     .user-container {
@@ -126,6 +147,12 @@
             }
             &.login-button {
                 border: 1px solid #454545;
+            }
+            &.signup-button:hover:not(:active) {
+                background-color: #555555;
+            }
+            &.login-button:hover:not(:active)  {
+                border-color: #656565;
             }
         }
     }

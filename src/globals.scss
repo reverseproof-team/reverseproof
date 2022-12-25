@@ -1,3 +1,22 @@
+@font-face {
+    font-family: "Mona sans";
+    src: url("../fonts/Mona Sans/Mona-Sans.woff");
+}
+@font-face {
+    font-family: "Mona sans";
+    font-weight: bold;
+    src: url("../fonts/Mona Sans/WOFF/Mona-Sans-Bold.woff");
+}
+@font-face {
+    font-family: "Hubot sans";
+    src: url("../fonts/Hubot Sans/Hubot-Sans.woff");
+}
+@font-face {
+    font-family: "Hubot sans";
+    font-weight: bold;
+    src: url("../fonts/Hubot Sans/WOFF/Hubot-Sans-Bold.woff");
+}
+
 * {
     box-sizing: border-box;
     -o-box-sizing: border-box;
