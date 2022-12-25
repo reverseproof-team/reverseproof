@@ -1,7 +1,9 @@
 <script>
     import { supabaseClient } from '$lib/supabase'
     import { invalidate } from '$app/navigation'
+    import { page } from "$app/stores";
     import { onMount } from 'svelte'
+    import Header from "../components/Header.svelte";
   
     onMount(() => {
       const {
@@ -14,6 +16,7 @@
         subscription.unsubscribe()
       }
     })
-  </script>
-  
-  <slot />
+</script>
+
+<Header />
+<slot />

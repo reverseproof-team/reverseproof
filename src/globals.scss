@@ -1,4 +1,17 @@
+* {
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 @mixin box($width, $height: $width) {
     width: $width;
     height: $height;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

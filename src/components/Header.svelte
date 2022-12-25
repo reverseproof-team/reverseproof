@@ -1,0 +1,132 @@
+<script lang="ts">
+	import { page } from "$app/stores"
+    import reverseproofLogo from "$lib/assets/reverseproof.svg";
+
+    const navs = [
+        { path: "/about", icon: "/people.svg" },
+        { path: "/", icon: "/home.svg" },
+        { path: "/new", icon: "/plus.svg" }
+    ];
+</script>
+
+
+<header>
+    <div class="logo-container">
+        <img src={reverseproofLogo} alt="" class="logo-image" />
+        <span class="logo-text">ReverseProof</span>
+    </div>
+    <div class="nav-container">
+        <nav>
+            {#each navs as nav}
+            <a class={"before-nav" + ($page.route.id === nav.path ? " primary" : "")} href={nav.path}>
+                <div class={"nav-button" + ($page.route.id === nav.path ? " primary" : "")}>
+                    <img src={nav.icon} alt="" />
+                </div>
+            </a>
+            {/each}
+        </nav>
+    </div>
+    <div class="user-container">
+        <a href="/login" class="login-button">Log in</a>
+        <a href="/signup" class="signup-button">Sign up</a>
+    </div>
+</header>
+
+<style lang="scss">
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    header {
+        width: min(80vw, 1250px);
+        height: clamp(50px, 10vh, 60px);
+        position: fixed;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 10, 10, 0.12);
+        border: 1px solid rgba(221, 221, 221, 0.29);
+        border-radius: 15px;
+        backdrop-filter: blur(2px);
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .logo-image {
+        width: clamp(32.5px, 7vh, 42.5px);
+        height: clamp(32.5px, 7vh, 42.5px);
+        margin: 0 10px;
+        border-radius: min(10px, 20%);
+        filter: drop-shadow(0px 1px 4px #454545);
+    }
+    .logo-text {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: clamp(20px, 1vw + 1rem, 25px);
+    }
+
+    .nav-container nav {
+        @include box(100%);
+        @include flex-center;
+    }
+
+    .before-nav {
+        width: clamp(30px, 6.5vh, 40px);
+        height: clamp(30px, 6.5vh, 40px);
+        @include flex-center;
+        border-radius: 25%;
+        margin: 6px;
+        padding: 1px;
+        filter: drop-shadow(0px 4px 4px #000000);
+        background-image: linear-gradient(rgba(225, 190, 0, 1), rgba(225, 112, 0, .15));
+        z-index: -1;
+        &.primary {
+            background: none;
+        }
+    }
+    .nav-button {
+        @include box(100%);
+        @include flex-center;
+        background-color: rgb(10, 10, 10);
+        border-radius: inherit;
+        &.primary {
+            background-image: linear-gradient(90deg, rgb(225, 215, 0), rgb(126, 81, 35));
+        }
+        & img {
+            width: clamp(20px, 4vh, 25px);
+            height: clamp(20px, 4vh, 25px);
+        }
+    }
+
+    .user-container {
+        @include box(100%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        & a {
+            height: clamp(30px, 6.5vh, 40px);
+            width: clamp(75px, 19.5vh, 100px);
+            @include flex-center;
+            margin: 10px;
+            text-decoration: none;
+            color: white;
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            border-radius: clamp(7.5px, 3vh, 10px);
+            font-size: clamp(12px, 1.5vh + .5em, 18px);
+            line-height: 24px;
+            &.signup-button {
+                background-color: #454545;
+            }
+            &.login-button {
+                border: 1px solid #454545;
+            }
+        }
+    }
+</style>
