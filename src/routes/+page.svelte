@@ -1,3 +1,16 @@
+<script lang="ts">
+    import { onMount } from "svelte";
+    import { fly } from "svelte/transition";
+    import { cubicInOut } from "svelte/easing"
+    let phoneVisible = false;
+
+    onMount(() => {
+        setTimeout(() => {
+            phoneVisible = true;
+        }, 500)
+    })
+</script>
+
 <div class="page-container">
     <div class="hero-container">
         <div class="title-container">
@@ -5,8 +18,10 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam exercitationem nam sequi porro esse ipsum, debitis praesentium pariatur natus eligendi?</p>
         </div>
         <div class="phone-container">
-            <div class="phone-blur"></div>
-            <div class="phone"></div>
+            {#if phoneVisible}
+            <div class="phone-blur" transition:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
+            <div class="phone" transition:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
+            {/if}
         </div>
     </div>
 </div>
@@ -35,8 +50,8 @@
             font-weight: bold;
         }
         & p {
-            font-size: 18px;
-            width: 50vw;
+            font-size: 20px;
+            width: min(50vw, 600px);
             text-align: center;
         }
     }
