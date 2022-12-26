@@ -15,12 +15,12 @@
     <div class="hero-container">
         <div class="title-container">
             <span>Solve logical problems</span>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam exercitationem nam sequi porro esse ipsum, debitis praesentium pariatur natus eligendi?</p>
+            <p>Face complex issues while utilizing the full power of machines</p>
         </div>
         <div class="phone-container">
             {#if phoneVisible}
-            <div class="phone-blur" transition:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
-            <div class="phone" transition:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
+            <div class="phone-blur" in:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
+            <div class="phone" in:fly={{ y: 100, duration: 750, easing: cubicInOut }}></div>
             {/if}
         </div>
     </div>
@@ -29,9 +29,6 @@
 <style lang="scss">
     .page-container {
         @include box(100vw, 100vh);
-        background-color: #0A0A0A;
-        color: white;
-        font-family: "Mona sans", sans-serif;
     }
     .hero-container {
         position: relative;
@@ -48,10 +45,11 @@
         & span {
             font-size: 40px;
             font-weight: bold;
+            margin: 10px;
         }
         & p {
-            font-size: 20px;
-            width: min(50vw, 600px);
+            font-size: 22px;
+            vertical-align: middle;
             text-align: center;
         }
     }

@@ -19,4 +19,14 @@
 </script>
 
 <Header />
+<main>
 <slot />
+</main>
+
+<style lang="scss">
+  main {
+    background-color: #0A0A0A;
+    color: white;
+    font-family: "Lato"
+  }
+</style>
