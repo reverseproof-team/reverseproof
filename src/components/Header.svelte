@@ -42,7 +42,7 @@
         width: min(80vw, 1250px);
         height: clamp(50px, 10vh, 60px);
         position: fixed;
-        top: 25px;
+        top: min(5vh, 30px);
         left: 50%;
         transform: translateX(-50%);
         background: rgba(10, 10, 10, 0.12);

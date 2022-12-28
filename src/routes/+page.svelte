@@ -7,7 +7,7 @@
     onMount(() => {
         setTimeout(() => {
             phoneVisible = true;
-        }, 500)
+        }, 250)
     })
 </script>
 
@@ -32,9 +32,9 @@
     }
     .hero-container {
         position: relative;
-        height: calc(100vh - clamp(50px, 10vh, 60px) - 50px);
+        height: calc(100vh - clamp(50px, 10vh, 60px) - min(5vh, 30px));
         width: 100vw;
-        top: calc(clamp(50px, 10vh, 60px) + 50px);
+        top: calc(clamp(50px, 10vh, 60px) + min(5vh, 30px));
         display: grid;
         grid-template-rows: 30% 70%;
     }
@@ -55,7 +55,6 @@
     }
     .phone-container {
         @include box(100%);
-        // @include flex-center;
     }
     .phone {
         @include box(22.5vh, 40vh);
@@ -64,13 +63,14 @@
         border-radius: min(10px, 20%);
         margin: 5vh 0;
         left: 50%;
+        bottom: 7.5vh;
         transform: translateX(-50%);
         z-index: 2;
     }
     .phone-blur {
         @include box(30vh);
         position: absolute;
-        top: calc(30% + 10vh);
+        bottom: 17.5vh;
         left: 50%;
         transform: translateX(-50%);
         background-color: rgb(64, 124, 198);
