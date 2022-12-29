@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from "$app/stores"
-    import reverseproofLogo from "$lib/assets/reverseproof.svg";
 
     const navs = [
         { path: "/about", icon: "/people.svg" },
@@ -13,7 +12,7 @@
 <header>
     <div class="logo-container">
         <a href="/">
-            <img src={reverseproofLogo} alt="" class="logo-image" />
+            <img src="/reverseproof.svg" alt="" class="logo-image" />
         </a>
         <a href="/">
             <span class="logo-text">ReverseProof</span>
@@ -22,11 +21,9 @@
     <div class="nav-container">
         <nav>
             {#each navs as nav}
-            <!-- <div class={"before-nav" + ($page.route.id === nav.path ? " primary" : "")}> -->
-                <a href={nav.path} class={"nav-button" + ($page.route.id === nav.path ? " primary" : "")}>
+                <a href={nav.path} class={"nav-button" + ($page.url.pathname === nav.path ? " primary" : "")}>
                     <img src={nav.icon} alt="" />
                 </a>
-            <!-- </div> -->
             {/each}
         </nav>
     </div>
