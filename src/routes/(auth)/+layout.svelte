@@ -12,7 +12,7 @@
     </div>
     <div class="quote">
       <div>
-      <h1>"Simplicity is the most complex form."</h1>
+      <h1>"Simplicity is a most complex form."</h1>
       <h2><i>- Duke Ellington</i></h2>
     </div>
     </div>
