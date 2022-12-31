@@ -1,3 +1,16 @@
+<script lang="ts">
+  import { fly } from "svelte/transition";
+  import { quartInOut } from "svelte/easing";
+  import { onMount } from "svelte";
+
+  let visible = false;
+  onMount(() => {
+    setTimeout(() => {
+      visible = true;
+    }, 400)
+  })
+</script>
+
 <main>
     <div class="auth">
       <div class="logo">
@@ -8,7 +21,11 @@
             <span class="logo-text">ReverseProof</span>
         </a>
       </div>
-      <slot />
+      {#if visible}
+        <div class="variable" in:fly={{ x: -150, opacity: 0, duration: 750, easing: quartInOut }}>
+          <slot />
+        </div>
+      {/if}
     </div>
     <div class="quote">
       <div>
@@ -27,8 +44,8 @@
       grid-template-columns: min(40%, 750px) max(60%, 100% - 750px);
     }
     .auth {
-      @include flex-center;
       background-color: #161616;
+      border-right: 1px solid #272727;
     }
     .logo {
       @include flex-center;
@@ -51,8 +68,13 @@
         width: clamp(32.5px, 7vh, 42.5px);
         height: clamp(32.5px, 7vh, 42.5px);
         border-radius: min(10px, 20%);
-        filter: drop-shadow(0px 1px 4px #454545);
       }
+    }
+    .variable {
+      @include box(min(40%, 750px), 90%);
+      @include flex-center;
+      position: absolute;
+      bottom: 0;
     }
     .quote {
       @include flex-center;

@@ -119,6 +119,7 @@
         background-image: linear-gradient(rgba(225, 190, 0, 1), rgba(225, 112, 0, .15));
         filter: drop-shadow(0px 4px 4px #000000);
         z-index: -1;
+        transition: background-image .15s;
     }
 
     .user-container {
@@ -141,9 +142,11 @@
             line-height: 24px;
             &.signup-button {
                 background-color: #454545;
+                transition: background-color .15s;
             }
             &.login-button {
                 border: 1px solid #454545;
+                transition: border .15s;
             }
             &.signup-button:hover:not(:active) {
                 background-color: #555555;
