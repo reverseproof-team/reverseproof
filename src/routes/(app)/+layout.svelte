@@ -12,6 +12,6 @@
       @include box(100%);
       background-color: #0A0A0A;
       color: white;
-      font-family: "Lato"
+      font-family: "Lato", sans-serif;
     }
 </style>

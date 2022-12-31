@@ -39,7 +39,7 @@
     main {
       @include box(100%);
       color: white;
-      font-family: "Lato";
+      font-family: "Lato", sans-serif;
       display: grid;
       grid-template-columns: min(40%, 750px) max(60%, 100% - 750px);
     }

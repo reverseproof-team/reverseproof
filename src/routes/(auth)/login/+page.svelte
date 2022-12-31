@@ -1,3 +1,15 @@
+<script lang="ts">
+    import { supabaseClient } from "$lib/supabase";
+
+    let email: string;
+    let password: string;
+
+    async function handleLogin() {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        
+    }
+</script>
+
 <div class="login">
     <div class="login-titles">
         <span class="login-title">Welcome to our app!</span>
@@ -15,14 +27,14 @@
         <div class="or">
             <span>or</span>
         </div>
-        <form method="POST" action='/login?/'>
+        <div class="login-form">
             <label for="email">Email:</label>
-            <input type="text" name="email" placeholder="you@example.com" id="email" />
+            <input type="text" name="email" placeholder="you@example.com" id="email" bind:value={email} />
             <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="••••••••" id="password" />
+            <input type="password" name="password" placeholder="••••••••" id="password" bind:value={password} />
             <span class="sign-up">Don't have an account? <a href="/signup">sign up!</a></span>
-            <button type="submit">Log in with Email</button>
-        </form>
+            <button on:click={handleLogin}>Log in with Email</button>
+        </div>
     </div>
 </div>
 
@@ -97,7 +109,7 @@
             margin: 10px 0 5px 0;
         }
     }
-    form {
+    .login-form {
         @include flex-center;
         flex-direction: column;
         gap: 20px;

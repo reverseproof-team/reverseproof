@@ -34,7 +34,6 @@
 </header>
 
 <style lang="scss">
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
     header {
         width: min(80vw, 1250px);
         height: clamp(50px, 10vh, 60px);

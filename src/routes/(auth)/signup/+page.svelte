@@ -15,7 +15,7 @@
         <div class="or">
             <span>or</span>
         </div>
-        <form method="POST" action='/login?/'>
+        <form class="signup-form">
             <label for="email">Email:</label>
             <input type="text" name="email" placeholder="you@example.com" id="email" />
             <label for="password">Password:</label>
@@ -33,7 +33,7 @@
         cursor: pointer;
     }
     .login {
-        @include box(400px, 700px);
+        @include box(400px, 650px);
         display: flex;
         justify-content: space-around;
         flex-direction: column;
@@ -99,7 +99,7 @@
             margin: 10px 0 5px 0;
         }
     }
-    form {
+    .signup-form {
         @include flex-center;
         flex-direction: column;
         gap: 20px;
